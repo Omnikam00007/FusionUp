@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KKWAGH Signup</title>
+        <link rel="stylesheet" href="/stylesheets/signUp.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Sign Up</h1>
+            <form id="signupForm" method="post" action="/auth/signup">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required />
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required />
+                </div>
+                <div class="form-group">
+                    <label for="mobileNo">Mobile Number</label>
+                    <input type="tel" id="mobileNo" name="mobileNo" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">KKWAGH College Email ID</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="skills">Skills</label>
+                    <textarea
+                        id="skills"
+                        name="skills"
+                        placeholder="Enter your skills, separated by commas"
+                    ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pursuingYear">Pursuing Year</label>
+                    <select id="pursuingYear" name="pursuingYear" required>
+                        <option value="">Select year</option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="3">Third Year</option>
+                        <option value="4">Fourth Year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="division">Division</label>
+                    <input type="text" id="division" name="division" required />
+                </div>
+                <div class="form-group">
+                    <label for="rollNo">Roll Number</label>
+                    <input type="text" id="rollNo" name="rollNo" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                    />
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="login-link">
+                Already have an account? <a href="/login" id="loginLink">Log in</a>
+            </div>
+        </div>
+        <div id="toast" class="toast"></div>
+        <!-- <script src="/javascripts/signUp.js"></script> -->
+    </body>
+</html>

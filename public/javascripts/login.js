@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         eyeOffIcon.classList.toggle('hidden');
     });
 
-    loginForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (validateEmail(emailInput.value)) {
-            // Add your login logic here
-            console.log('Login attempted');
-        } else {
-            emailError.textContent = 'Please enter a valid email address';
-        }
-    });
+    // loginForm.addEventListener('submit', function(e) {
+    //     e.preventDefault();
+    //     if (validateEmail(emailInput.value)) {
+    //         // Add your login logic here
+    //         console.log('Login attempted');
+    //     } else {
+    //         emailError.textContent = 'Please enter a valid email address';
+    //     }
+    // });
 });
