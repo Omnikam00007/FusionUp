@@ -20,7 +20,8 @@ a {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0  0;
+    
 }
 
 
@@ -36,21 +37,25 @@ nav {
     align-items: center;
     width: 100%;
 }
-.logo {
+.logo img{
     display: flex;
-    align-items: center;
+    height: 45px;
+    padding:0px;
+    margin:0px;
+    align-items:center;
+    
 }
-.logo svg {
-    width: 1.5rem;
-    height: 1.5rem;
-}
+
 .nav-links {
     display: flex;
     gap: 1rem;
+    align-items:center;
+    margin-left:438px;
 }
 .nav-link {
     font-size: 0.875rem;
     font-weight: 500;
+    
 }
 .nav-link:hover {
     text-decoration: underline;
