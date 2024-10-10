@@ -56,7 +56,7 @@ app.use(function (err, req, res, next) {
 
 const mongoose = require("mongoose");
 
-const link = "mongodb://localhost:27017/FusionUp"
+const link = "mongodb+srv://omnikam33:4kxuRPOJZSGnpcNs@cluster0.lqyej.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 mongoose
   .connect(link)
   .then(() => console.log("Connected"))
