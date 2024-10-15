@@ -13,4 +13,8 @@ router.get("/signup", (req, res) => {
   res.render("signUp")
 })
 
+router.get("/groups", (req, res) => {
+  res.render("groups");
+});
+
 module.exports = router;
