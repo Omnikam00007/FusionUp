@@ -17,4 +17,11 @@ router.get("/groups", (req, res) => {
   res.render("groups");
 });
 
+router.get("/form", (req, res) =>{
+  res.render("form")
+});
+
+router.get("/join", (req, res) =>{
+  res.render("join")
+});
 module.exports = router;

@@ -503,6 +503,54 @@ p {
     }
 }
 
+
+/* creat group button */
+ 
+
+.corner-btn {
+    position: absolute;
+    top: 65px;
+    left: 30px;
+    padding: 10px 15px;
+    background-color: #090909;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, width 0.3s ease;
+    width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.corner-btn:hover {
+    background-color: #292f35;
+    width: 150px; /* Expands the button when hovered */
+}
+
+.icon-container {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.text-container {
+    display: none;
+    margin-left: 10px;
+    transition: display 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.corner-btn:hover .icon-container {
+    opacity: 0;
+}
+
+.corner-btn:hover .text-container {
+    display: inline-block;
+    opacity: 1;
+}
+
 /* card section
 .card-section {
     padding: 3rem 0;
