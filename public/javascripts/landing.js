@@ -64,3 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const activateButton = document.getElementById('button1');
+    const deleteButton = document.getElementById('button2');
+
+    let isActive = false;
+
+    activateButton.addEventListener('click', () => {
+        isActive = !isActive;
+        activateButton.textContent = isActive ? 'Deactivate' : 'Activate';
+        activateButton.classList.toggle('active', isActive);
+    });
+
+    deleteButton.addEventListener('click', () => {
+        console.log('Delete button clicked');
+        // Add delete functionality here
+    });
+});
