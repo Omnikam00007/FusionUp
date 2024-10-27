@@ -1,12 +1,8 @@
 const User = require("../models/userModel");
-const passport = require("passport");
-const localStrategy = require("passport-local").Strategy;
-
-passport.use(new localStrategy(User.authenticate()));
-
+const bcrypt = require("bcrypt");
 
 const SignUpHandler = async (req, res, next) => {
-  console.log(req.body)
+  console.log(req.body);
   const {
     fullName,
     mobileNo,
@@ -23,21 +19,32 @@ const SignUpHandler = async (req, res, next) => {
     mobileNo,
     username,
     email,
-    skills: skills, // Assuming skills come as a comma-separated string
+    skills: skills,
+    password: await bcrypt.hash(password, 10),
     pursuingYear,
     division,
     rollNo,
-    password,
   });
-  User.register(userData, req.body.password).then(() => {
-    req.flash(
-      "successMessage",
-      "Registration successful! You're all set to log in now.",
-    );
-    res.redirect("/login");
-  });
+
+  await userData.save();
+  await res.redirect("/login")
+};
+
+const loginHandler = async (req, res) => {
+  const { username, password } = req.body;
+  const user = await User.findOne({ username: username });
+  console.log(password);
+  
+  const isValidPassword = await bcrypt.compare(password, user.password);
+  req.session.username = user.username;
+  if (!isValidPassword) {
+    return res.redirect("/login");
+  } else {
+    return res.redirect("/")  
+  }
 };
 
 module.exports = {
   SignUpHandler,
+  loginHandler
 };

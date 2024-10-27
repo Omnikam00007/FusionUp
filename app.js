@@ -4,10 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const expressSession = require("express-session");
-const bodyParser = require("body-parser");
-const passport = require("passport");
 const flash = require("req-flash")
-const User = require("./models/userModel")
 
 const authRouter = require("./routes/auth");
 const indexRouter = require("./routes/index");
@@ -29,14 +26,8 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(bodyParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
-
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
