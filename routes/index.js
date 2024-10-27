@@ -4,8 +4,8 @@ const { groupHandler } = require("../controllers/groupController");
 const GroupRegistration = require("../models/groupModel");
 
 router.get("/", async (req, res) => {
-    const data = await GroupRegistration.find({isActive: true});
-    res.render("index", {data});
+  const data = await GroupRegistration.find({ isActive: true });
+  res.render("index", { data });
 });
 
 router.get("/login", (req, res) => {
@@ -19,17 +19,18 @@ router.get("/signup", (req, res) => {
 router.get("/groups", async (req, res) => {
   const username = req.session.username;
   const data = await GroupRegistration.find({ username: username });
-  res.render("groups", {data});
+  res.render("groups", { data });
 });
 
-router.get("/form" ,(req, res) => {
+router.get("/form", (req, res) => {
   res.render("form");
 });
 
 router.post("/form", groupHandler);
 
-router.get("/join", (req, res) => {
-  res.render("join");
+router.get("/join", async (req, res) => {
+  const data = await GroupRegistration.find({ isActive: true });
+  res.render("join", { data });
 });
 
 router.post("/toggle-status/:id", async (req, res) => {
@@ -40,16 +41,16 @@ router.post("/toggle-status/:id", async (req, res) => {
   await data.save();
 });
 
-router.delete('/delete-group/:id', async (req, res) => {
+router.delete("/delete-group/:id", async (req, res) => {
   try {
-      const group = await GroupRegistration.findByIdAndDelete(req.params.id);
-      if (!group) {
-          return res.status(404).send('Group not found');
-      }
-      res.send('');
+    const group = await GroupRegistration.findByIdAndDelete(req.params.id);
+    if (!group) {
+      return res.status(404).send("Group not found");
+    }
+    res.send("");
   } catch (error) {
-      console.error('Error deleting group:', error);
-      res.status(500).send('Error deleting group');
+    console.error("Error deleting group:", error);
+    res.status(500).send("Error deleting group");
   }
 });
 
